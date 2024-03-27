@@ -9,6 +9,9 @@ async def robotFunc(start_num):
         await asyncio.sleep(1)
 
 parser = argparse.ArgumentParser(description="Введите начальное значение")
-parser.add_argument("start_num", help="starting number")
-args = parser.parse_args()
-asyncio.run(robotFunc(args.start_num))
+try:
+    parser.add_argument("start_num", type= int, help="starting number")
+    args = parser.parse_args()
+    asyncio.run(robotFunc(args.start_num))
+except:
+    asyncio.run(robotFunc(0))
